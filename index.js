@@ -4,6 +4,8 @@ import morgan from "morgan";
 import "dotenv/config";
 import { fileURLToPath } from "url";
 import path from "path";
+import enrutadorColores from "./src/routes/colores.routes.js";
+import "./src/database/database.js";
 
 const app = express();
 
@@ -21,3 +23,5 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, "/public")))
+
+app.use("/api", enrutadorColores);
