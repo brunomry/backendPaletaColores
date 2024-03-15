@@ -41,12 +41,15 @@ export const crearColor = async(req,res) => {
 export const editarColor = async(req,res) =>{
   try {
     const colorEncontrado = await Color.findById(req.params.id);
+
     if(!colorEncontrado){
       return res.status(404).json({
         mensaje:"No se encontró el color, el id es incorrecto"
       })
     }
+
     await Color.findByIdAndUpdate(req.params.id,req.body);
+    
     res.status(200).json({
       mensaje:"El color fue modificado con éxito"
     })
@@ -54,6 +57,29 @@ export const editarColor = async(req,res) =>{
     console.log(error);
     res.status(500).json({
       mensaje:"Ocurrió un error al intentar modificar el color"
+    })
+  }
+}
+
+export const borrarColor = async(req,res) => {
+  try {
+    const colorEncontrado = await Color.findById(req.params.id);
+
+    if(!colorEncontrado){
+      return res.status(404).json({
+        mensaje:"No se encontró el color, el id es incorrecto"
+      })
+    }
+
+    await Color.findByIdAndDelete(req.params.id);
+
+    res.status(200).json({
+      mensaje:"El color fue eliminado con éxito"
+    })
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      mensaje:"Ocurrió un error al intentar eliminar el color"
     })
   }
 }
