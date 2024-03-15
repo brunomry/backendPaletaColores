@@ -1,6 +1,15 @@
 import Color from "../database/model/color.js"
 
-export const listarColores = (req,res) =>{
+export const listarColores = async(req,res) =>{
+  try {
+    const colores = await Color.find();
+    res.status(200).json({colores})
+  } catch (error) {
+    console.log(error);
+    res.status("400").json({
+      mensaje:"No se encontró la lista de colores"
+    })
+  }
   res.send("Enviar lista de colores");
 }
 
