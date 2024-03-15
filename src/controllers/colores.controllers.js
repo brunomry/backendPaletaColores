@@ -13,6 +13,18 @@ export const listarColores = async(req,res) =>{
   res.send("Enviar lista de colores");
 }
 
+export const obtenerColor = async(req,res) => {
+  try {
+    const colorBuscado = await Color.findById(req.params.id);
+    res.status(200).json(colorBuscado);
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      mensaje:"No se encontró el color solicitado"
+    })
+  }
+}
+
 export const crearColor = async(req,res) => {
   try {
     const colorNuevo = new Color(req.body);
