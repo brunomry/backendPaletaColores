@@ -6,10 +6,10 @@ const colorSchema = new Schema({
     required: true,
     unique: true,
     minLength: 3, 
-    maxLength: 15
+    maxLength: 21
   }
 })
 
-const Color = mongoose.model("color", colorSchema);
+const Color = mongoose.model("colore", colorSchema);
 
 export default Color;
