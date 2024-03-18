@@ -3,7 +3,6 @@ import Color from "../database/model/color.js";
 export const listarColores = async(req,res) =>{
   try {
     const colores = await Color.find();
-    console.log(colores)
     res.status(200).json({colores})
   } catch (error) {
     console.log(error);
