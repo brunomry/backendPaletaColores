@@ -4,7 +4,7 @@ Este proyecto es el backend de la aplicación web sobre Paleta de colores.
 
 ## Descripción
 
-Este backend se encarga de manejar la lógica del servidor y la comunicación con la base de datos para la aplicación de blog de recetas de cocina.
+Este backend se encarga de manejar la lógica del servidor y la comunicación con la base de datos para la aplicación de paleta de colores.
 
 ## Enunciado - Requerimientos
 
